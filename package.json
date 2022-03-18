@@ -1,0 +1,19 @@
+{
+  "name": "offline-signing-examples",
+  "version": "1.0.0",
+  "description": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@polkadot/api": "^7.12.1",
+    "@polkadot/util": "^8.5.1",
+    "@polkadot/util-crypto": "^8.5.1",
+    "@substrate/txwrapper-polkadot": "^1.5.7",
+    "rpc-websockets": "^7.4.17"
+  }
+}
