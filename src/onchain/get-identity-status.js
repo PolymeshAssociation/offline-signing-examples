@@ -11,15 +11,27 @@ const { getPolkadotApi } = require('../utils');
 async function getIdentityStatus(userAddress) {
   const api = await getPolkadotApi(); 
 
-  const did = await api.query.identity.keyToIdentityIds(userAddress);
-
-  if (did.isEmpty) {
+  let keyRecord = await api.query.identity.keyRecords(userAddress);
+  if (keyRecord.isSome) {
+    keyRecord = keyRecord.unwrap();
+  } else {
     return {
       did: undefined,
       hasCddClaim: false,
     };
   }
-
+  let did;
+  if (keyRecord.isPrimaryKey) {
+    did = keyRecord.asPrimaryKey;
+  } else if (keyRecord.isSecondaryKey) {
+    did = keyRecord.asSecondaryKey;
+  } else {
+    return {
+      did: undefined,
+      hasCddClaim: false,
+    };
+  }
+  
   const cddResponse = await api.rpc.identity.isIdentityHasValidCdd(did);
 
   const hasCddClaim = cddResponse.isOk;
