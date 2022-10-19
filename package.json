@@ -10,10 +10,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@polkadot/api": "^7.12.1",
-    "@polkadot/util": "^8.5.1",
-    "@polkadot/util-crypto": "^8.5.1",
-    "@substrate/txwrapper-polkadot": "^1.5.7",
-    "rpc-websockets": "^7.4.17"
+    "@polkadot/api": "^9.5.2",
+    "@polkadot/util": "^10.1.11",
+    "@polkadot/util-crypto": "^10.1.11",
+    "@substrate/txwrapper-polkadot": "^4.0.1",
+    "rpc-websockets": "^7.5.0"
   }
 }
