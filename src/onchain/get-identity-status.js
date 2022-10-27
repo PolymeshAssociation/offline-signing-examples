@@ -24,7 +24,7 @@ async function getIdentityStatus(userAddress) {
   if (keyRecord.isPrimaryKey) {
     did = keyRecord.asPrimaryKey;
   } else if (keyRecord.isSecondaryKey) {
-    did = keyRecord.asSecondaryKey;
+    did = keyRecord.asSecondaryKey[0];
   } else {
     return {
       did: undefined,
